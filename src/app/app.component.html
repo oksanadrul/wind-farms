@@ -1,0 +1,33 @@
+<!--  Top Header -->
+<mat-toolbar class="header">
+  <div class="header__logo">
+    <h1 class="header__logo-img">PEXA</h1>
+    <p class="header__logo-text">Logo</p>
+  </div>
+  <app-filter (setWindFarm)="getWindFarmIdRoute($event)"></app-filter>
+</mat-toolbar>
+
+<!--  Left navigation -->
+<div class="wrapper" [class.wrapper--sidebar-open]="isSidebarOpen">
+  <div class="sidebar" aria-label="Menu">
+    <div class="sidebar__header">
+      <button class="sidebar__toggle" [class.sidebar__toggle--open]="isSidebarOpen" (click)="isSidebarOpen = !isSidebarOpen">
+        <svg class="sidebar__toggle-icon" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect class="top" x="2" y="4.5" width="12" height="1.5" rx="0.75"></rect>
+          <rect class="middle" x="0" y="7.5" width="12" height="1.5" rx="0.75"></rect>
+          <rect class="bottom" x="2" y="10.5" width="12" height="1.5" rx="0.75"></rect>
+        </svg>
+      </button>
+    </div>
+    <app-navigation class="sidebar__navigation" [expanded]="isSidebarOpen"></app-navigation>
+  </div>
+
+  <!--  Main content -->
+  <div class="content">
+    <main class="main" aria-label="Main">
+      <router-outlet class="main-content"></router-outlet>
+    </main>
+  </div>
+</div>
+
+

@@ -1,0 +1,133 @@
+$cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+$sidebar-closed-width: 52px;
+$sidebar-open-width: 260px;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  border-bottom: 2px solid #4343485c;
+  z-index: 1;
+  padding: 20px 20px 20px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &-img{    font-weight: bold;
+      font-size: 35px;
+      color: #673ab7;
+    }
+    &-text {font-weight: 600;
+      color: #434348;}
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-left: -#{$sidebar-open-width - $sidebar-closed-width};
+  padding-top: 15px;
+  transition: margin-left 0.4s $cubic-bezier;
+  width: $sidebar-open-width;
+  background-color: #f5f5f5;
+  border-right: 2px solid #b5b5b7;
+
+  &__toggle {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 14px;
+    width: $sidebar-closed-width;
+    height: $sidebar-closed-width;
+
+    &:focus {
+      outline: none;
+    }
+
+    rect {
+      transition: transform 0.2s ease-in;
+    }
+
+    .middle {
+      transition: transform 0.4s ease-out;
+    }
+
+    &--open {
+      .top {
+        transform: translate(-2px, -1px);
+      }
+
+      .middle {
+        transform: translate(4px, 0);
+      }
+
+      .bottom {
+        transform: translate(-2px, 1px);
+      }
+    }
+
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    justify-content: flex-end;
+    padding-left: 14px;
+
+    &-title {
+      align-items: center;
+      //color: lawngreen;
+      display: flex;
+      flex-grow: 1;
+
+      h1 {
+        font-weight: 700;
+      }
+
+      svg {
+        fill: white;
+        margin-right: 8px;
+      }
+    }
+
+    &-icon {
+      color: seashell;
+      flex-shrink: 0;
+      text-align: center;
+      width: $sidebar-closed-width;
+    }
+  }
+
+  .wrapper--sidebar-open & {
+    margin-top: auto;
+    margin: 0;
+  }
+}
+.wrapper {
+  display: flex;
+  flex-direction: row; // This handles the sidebar and content sections
+  position: absolute;
+  top: 100px;
+  min-height: calc(100vh - 100px);
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .main {
+      min-width: calc(100vw - 280px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+

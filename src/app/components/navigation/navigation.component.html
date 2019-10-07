@@ -1,0 +1,16 @@
+<ul [class.sidenav--expanded]="expanded" class="sidenav">
+  <ng-container *ngFor="let item of sideNavItems">
+    <li [class.sidenav__item--active]="isLinkActive(item)"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="sidenav__item"
+        routerLinkActive="sidenav__item--active"
+    >
+      <a [class.sidenav__item--active]="isLinkActive(item)" [routerLink]="[item.route]" class="sidenav__link">
+        <span class="sidenav__link-text">{{ item.name | titlecase }}</span>
+        <mat-icon class="sidenav__link-icon">{{item.icon}}</mat-icon>
+      </a>
+    </li>
+  </ng-container>
+</ul>
+
+

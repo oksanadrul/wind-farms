@@ -1,0 +1,50 @@
+::ng-deep {
+  .mat-table {
+    th.mat-header-cell,
+    .mat-cell {
+      text-align: center;
+      font-weight: bold;
+      border-width: 2px;
+    }
+
+    th.mat-header-cell {
+      border-right: none;
+    }
+
+    .mat-column-month,
+    .mat-column-budget {
+      border-right: 2px solid #e0e0e0;
+      max-width: 70px;
+
+    }
+    tr.mat-row {
+      height: 35px;
+    }
+  }
+}
+
+.table-container {
+  //height: 400px;
+  width: 550px;
+  overflow: auto;
+  box-shadow: none;
+  margin: auto;
+}
+
+table {
+  width: 550px;
+}
+
+td.mat-column-star {
+  width: 20px;
+  padding-right: 8px;
+}
+
+th.mat-column-position, td.mat-column-position {
+  padding-left: 8px;
+}
+
+
+@media screen and (max-width: 960px) {
+
+}

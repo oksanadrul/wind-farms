@@ -1,0 +1,21 @@
+<mat-form-field floatLabel="never" appearance="outline">
+  <mat-label>{{selectedId ? 'You\'ve chosen WF' + selectedId : 'Choose WF'}}</mat-label>
+  <mat-select
+    (click)="getData($event)"
+    (selectionChange)="filterFarms($event.value)"
+    [(value)]="selectedId"
+  >
+  <ng-container *ngIf="options !== null && options.length; else loading">
+    <mat-option *ngFor="let option of options" [value]="option.id" >
+      {{option.name}}
+    </mat-option>
+  </ng-container>
+  <ng-template #loading>
+    <mat-option disabled>
+      <div class="container">
+        <span>Loading...</span>
+      </div>
+    </mat-option>
+  </ng-template>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,14 @@
+<div class="chart-wrapper" *ngIf="data?.length;else loadData" >
+  <highcharts-chart
+    [Highcharts] = "highcharts"
+    [options] = "chartOptions"
+    [constructorType]="chartConstructor"
+    [callbackFunction]="chartCallback"
+    [(update)]="updateFlag"
+    [oneToOne]="true"
+    class="highchart"
+    style = "width: 600px; height: 500px; display: block;">
+  </highcharts-chart>
+</div>
+
+<ng-template #loadData>Please, choose Wind Farm on filter for showing data</ng-template>
